@@ -1,0 +1,400 @@
+
+body{
+   -webkit-box-sizing: border-box;
+   -moz-box-sizing: border-box;
+   box-sizing: border-box;
+   font-size: 15pt;
+   margin: 0px;
+   padding: 0px;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+.polp{
+  margin-top: -0px;
+  margin-right: -9px;
+}
+.po {
+  background-color: #333;
+  direction: rtl; /* تحديد اتجاه النص من اليمين لليسار */
+  color: #eee; /* لون النص */
+  padding: 10px;
+  margin: 0px; /* إزالة الهوامش */
+  
+  /* إضافة الخاصية position: fixed */
+  /*خاصيه لي انشا القاهمه تنزل مع الصفحه*/
+  position: fixed; /* جعل العنصر ثابتًا في أعلى الصفحة */
+  top: 0; /* تثبيت العنصر في أعلى الصفحة */
+  left: 0; /* تثبيت العنصر في الجهة اليسرى */
+  
+  width: 80%;
+  height: 70px;/* عرض العنصر 100% */
+  z-index: 1000; /* التأكد من أن العنصر يظهر فوق العناصر الأخرى */
+}
+
+.pl{
+  background-image: url(../imgs/mlo.jpg);
+  background-size: cover;
+  background-position: center;
+  margin: 
+  width: 350px;
+  height: 600px;
+  border-radius: 15px;
+  margin-top: 100px;
+}
+.kero{
+  color: #eee;
+  text-align: center;
+}
+  
+.kro{
+  font-size: 25px;
+  color: #eee;
+  padding: 25px;
+  text-align: center;
+}
+.km{
+  text-align: center;
+  font-size: 30px;
+  
+}
+.ki{
+  text-align: center;
+}
+
+.klep{
+  /*لي انشا الحاجه جنب بعد بدل من يكونو فوق بعد*/
+  display: flex;
+  /*لي اتحكب بس الحاجه وي جيبه في النوص المنتسف*/
+  justify-content: center;
+  
+  margin: 50px auto;
+}
+.klep div{
+  width: 20px;
+  height: 20px;
+  background-color: blue;
+  border-radius: 50px;
+  margin: 0 5px;
+  animation-name: up;
+  animation-duration: 0.9s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  margin-top: 10px;
+}
+
+.klep .g{
+  animation-delay: 0.3s;
+}
+.klep .h{
+  animation-delay: 0.6s;
+}
+@keyframes up{
+  to{
+    opacity: 0.2;
+    /*علشان يخلي النيميشن يمشي بي التدريج*/
+    transform: translateY(20px);
+  }
+}
+
+
+
+.H{
+  background-color: #eee;
+  color: black;
+  font-size: 30px;
+  padding: 30px 130px;
+  display: inline-block;
+  border-bottom: 5px solid red;
+  
+  margin-left: 8px;
+  /* لي انشا الإدارة الي في الرابط*/
+  border-radius: 20px;
+  /*لي الغه الخطا الي في الرابط*/
+  text-decoration: none;
+  transition: all 0.4s;
+}
+.H:hover{
+  scale: 1.1;
+}
+
+
+.l{
+  background-color: #eee;
+  color: black;
+  font-size: 30px;
+  padding: 30px 144px;
+  display: inline-block;
+  border-bottom: 5px solid red;
+  margin: 50px;
+  margin-left: 8px;
+  /* لي انشا الإدارة الي في الرابط*/
+  border-radius: 20px;
+  /*لي الغه الخطا الي في الرابط*/
+  text-decoration: none;
+  transition: all 0.4s;
+}
+
+.l:hover{
+  scale: 1.1;
+}
+.p{
+  background-color: #eee;
+  color: black;
+  font-size: 30px;
+  padding: 30px 100px;
+  display: inline-block;
+  border-bottom: 5px solid red;
+  margin: 10px;
+  margin-left: 8px;
+  /* لي انشا الإدارة الي في الرابط*/
+  border-radius: 20px;
+  /*لي الغه الخطا الي في الرابط*/
+  text-decoration: none;
+  transition: all 0.4s;
+}
+
+.p:hover{
+  scale: 1.1;
+}
+.lk{
+  background-color: #eee;
+  color: black;
+  font-size: 30px;
+  padding: 30px 136px;
+  display: inline-block;
+  border-bottom: 5px solid red;
+  margin: 50px;
+  margin-left: 8px;
+  /* لي انشا الإدارة الي في الرابط*/
+  border-radius: 20px;
+  /*لي الغه الخطا الي في الرابط*/
+  text-decoration: none;
+  transition: all 0.4s;
+}
+
+.lk:hover{
+  scale: 1.1;
+}
+
+button:hover{
+  border-bottom: 5px solid yellow;
+}
+.hg{
+  background-color: #333;
+  direction: rtl;
+  color: #eee;
+  padding: 10px;
+  margin: 0px;
+  font-size: 10px;
+  text-align: center;
+}
+
+.kq{
+  background-color: #eee;
+  height: 1200px;
+  
+  
+  
+  
+}
+.ko{
+  text-align: center;
+  margin: 20px;
+  padding: 20px 40px;
+  font-size: 50px;
+}
+.kio{
+  text-align: center;
+  font-size: 30px;
+}
+.kwp{
+  background-color: #FFFFFF;
+  color: black;
+  
+  font-size: 30px;
+  padding: 20px 120px;
+  display: inline-block;
+  border: 5px solid blue;
+  margin: 70px;
+  margin-left: 8px;
+  /* لي انشا الإدارة الي في الرابط*/
+  border-radius: 20px;
+  /*لي الغه الخطا الي في الرابط*/
+  text-decoration: none;
+  transition: all 0.4s;
+}
+.kwp:hover{
+  scale: 1.1;
+}
+
+.kwl{
+  background-color: #FFFFFF;
+  color: black;
+  
+  font-size: 30px;
+  padding: 30px 100px;
+  display: inline-block;
+  border: 5px solid red;
+  margin: 10px;
+  margin-left: 8px;
+  /* لي انشا الإدارة الي في الرابط*/
+  border-radius: 20px;
+  /*لي الغه الخطا الي في الرابط*/
+  text-decoration: none;
+  transition: all 0.4s;
+}
+
+.kwl:hover{
+  scale: 1.1;
+}
+.rt{
+  margin-top: -190px;
+}
+
+.kep{
+  /*لي انشا الحاجه جنب بعد بدل من يكونو فوق بعد*/
+  display: flex;
+  /*لي اتحكب بس الحاجه وي جيبه في النوص المنتسف*/
+  
+  justify-content: center;
+  
+  margin: 0px auto;
+}
+
+.kep div{
+  width: 20px;
+  height: 20px;
+  background-color: blue;
+  border-radius: 50px;
+  margin: 0 0px;
+  margin-top: -50px;
+  
+  animation-name: up;
+  animation-duration: 0.9s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  
+}
+
+.kep .g{
+  animation-delay: 0.3s;
+}
+.kep .h{
+  animation-delay: 0.6s;
+}
+@keyframes up{
+  to{
+    opacity: 0.2;
+    /*علشان يخلي النيميشن يمشي بي التدريج*/
+    
+    transform: translateY(20px);
+    
+  }
+}
+.kqp{
+  display: flex;
+  
+  justify-content: center;
+  margin: 0px auto;
+}
+.kqp div{
+  width: 20px;
+  height: 20px;
+  background-color: blue;
+  border-radius: 50px;
+  margin: 0 0px;
+  margin-top: -0px;
+  
+  animation-name: lp;
+  animation-duration: 0.9s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  
+}
+
+@keyframes lp{
+  to{
+    opacity: 0.2;
+    /*علشان يخلي النيميشن يمشي بي التدريج*/
+    
+    transform: translateY(20px);
+    
+  }
+}
+
+.kol{
+  background-color: #FFFFFF;
+  color: black;
+  
+  font-size: 30px;
+  padding: 20px 100px;
+  display: inline-block;
+  border: 5px solid #333;
+  margin: 10px;
+  margin-top: 40px;
+  margin-left: 8px;
+  /* لي انشا الإدارة الي في الرابط*/
+  border-radius: 20px;
+  /*لي الغه الخطا الي في الرابط*/
+  text-decoration: none;
+  transition: all 0.4s;
+}
+
+.kol:hover{
+  scale: 1.1;
+}
+
+
+
+.kew{
+  background-color: #FFFFFF;
+  height: 400px;
+}
+
+  
+.hf{
+  text-align: center;
+  font-size: 50px;
+}
+
+.la{
+  text-align: center;
+  font-size: 25px;
+}
+
+.w{
+  background-color: red;
+  color: #FFFFFF;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 10px;
+  text-decoration: none;
+}
+.we{
+  background-color: red;
+  color: #FFFFFF;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.bn{
+  background-color: #eee;
+  height: 400px
+}
+
+.hf{
+  margin-left: 20px;
+  border-radius: 15px;
+  margin: 10px;
+  padding: 10px;
+  transition: all 0.4;
+  transform: (5.9);
+  
+}
+.hf:hover{
+  scale: 1.1;
+}

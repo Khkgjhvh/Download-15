@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختبار متعدد</title>
+    <style>
+        /* CSS */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .quiz-container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+            display: none; /* إخفاء الاختبارات بشكل افتراضي */
+        }
+
+        .quiz-container.active {
+            display: block; /* عرض الاختبار النشط */
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .question {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            text-align: center;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div id="quiz1" class="quiz-container active">
+        <h1>اختبار 1</h1>
+        <form>
+            <div class="question">
+                <h3>1. ما هي العلامة المستخدمة لإنشاء رابط في HTML؟</h3>
+                <label><input type="radio" name="q1" value="a"> &lt;p&gt;</label>
+                <label><input type="radio" name="q1" value="b"> &lt;a&gt;</label>
+                <label><input type="radio" name="q1" value="c"> &lt;div&gt;</label>
+            </div>
+            <button type="button" onclick="checkAnswer(1, 'b')">إرسال</button>
+        </form>
+    </div>
+
+    <div id="quiz2" class="quiz-container">
+        <h1>اختبار 2</h1>
+        <form>
+            <div class="question">
+                <h3>2. أي خاصية في CSS تُستخدم لتغيير لون النص؟</h3>
+                <label><input type="radio" name="q2" value="a"> color</label>
+                <label><input type="radio" name="q2" value="b"> font-size</label>
+                <label><input type="radio" name="q2" value="c"> background-color</label>
+            </div>
+            <button type="button" onclick="checkAnswer(2, 'a')">إرسال</button>
+        </form>
+    </div>
+
+    <div id="quiz3" class="quiz-container">
+        <h1>اختبار 3</h1>
+        <form>
+            <div class="question">
+                <h3>3. ما هي لغة البرمجة التي تعمل في المتصفح؟</h3>
+                <label><input type="radio" name="q3" value="a"> Python</label>
+                <label><input type="radio" name="q3" value="b"> JavaScript</label>
+                <label><input type="radio" name="q3" value="c"> Java</label>
+            </div>
+            <button type="button" onclick="checkAnswer(3, 'b')">إرسال</button>
+        </form>
+    </div>
+
+    <div id="result"></div>
+
+    <script>
+        // JavaScript
+        function checkAnswer(quizNumber, correctAnswer) {
+            const quiz = document.getElementById(`quiz${quizNumber}`);
+            const selected = quiz.querySelector(`input[name="q${quizNumber}"]:checked`);
+            const resultDiv = document.getElementById("result");
+
+            if (!selected) {
+                alert("من فضلك اختر إجابة قبل الإرسال!");
+                return;
+            }
+
+            if (selected.value === correctAnswer) {
+                resultDiv.textContent = `إجابة صحيحة لاختبار ${quizNumber}!`;
+            } else {
+                resultDiv.textContent = `إجابة خاطئة لاختبار ${quizNumber}.`;
+            }
+
+            // إخفاء الاختبار الحالي
+            quiz.classList.remove("active");
+
+            // عرض الاختبار التالي
+            const nextQuiz = document.getElementById(`quiz${quizNumber + 1}`);
+            if (nextQuiz) {
+                nextQuiz.classList.add("active");
+            } else {
+                resultDiv.textContent += " لقد انتهيت من جميع الاختبارات!";
+            }
+        }
+    </script>
+</body>
+</html>

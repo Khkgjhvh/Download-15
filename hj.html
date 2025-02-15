@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>HTML</title>
+  
+  <!-- HTML -->
+  
+
+  <!-- Custom Styles -->
+   <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* تنسيق زر "ثلث الشرط" بجانب العنوان */
+    .three-quarters {
+      background-color: #444;
+      color: white;
+      padding: 5px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-left: -20px;
+      text-align: left; /* المسافة بين العنوان وزر "ثلث الشرط" */
+    }
+
+    .three-quarters:hover {
+      background-color: #575757;
+    }
+
+    /* تنسيق الأزرار التي ستظهر عند الضغط */
+    .more-buttons {
+      display: none; /* إخفاء الأزرار في البداية */
+      position: absolute;
+      top: 50px; /* عرض الأزرار أسفل زر "ثلث الشرط" */
+      background-color: #444;
+      padding: 10px;
+      border-radius: 5px;
+      z-index: 1001;
+    }
+
+    .more-buttons button {
+      background-color: #555;
+      color: white;
+      padding: 10px;
+      margin: 5px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .more-buttons button:hover {
+      background-color: #777;
+    }
+  </style>
+</head>
+
+<body>
+  <h1 class="po">أكاديمية كيرو <span class="three-quarters" onclick="toggleButtons()">|||</span></h1>
+  <hr>
+  
+  <div class="pl">
+    <h1 class="kero">اكاديمية كيرو</h1>
+    <div class="kro">هي منصة تعليمية تقوم على تقديم العديد من مسارات تطوير الويب وتعلم البرمجة بصفة عامة بشرح تفصيلي تفاعلي باللغة العربية، وخطط دراسة مع اختبارات وتحديات برمجيّة لضمان فهم الكود والتطبيق عليه.</div>
+  </div>  
+
+  <div class="km">
+    <h1>خطط الدراسة</h1>
+  </div>
+
+  <div class="ki">
+    <p>خطط دراسة اللغات المتاحة</p>
+  </div>
+    
+  <div class="klep">
+    <div class="k"></div>
+    <div class="g"></div>
+    <div class="h"></div>
+  </div>
+
+  <a class="H" href="index(1).html">HTML</a>
+  <a class="l" href="index(1).html">CSS</a>
+  <a class="p" href="index(1).html">JavaScript</a>
+  <a class="lk" href="index(1).html">SASS</a>
+
+  <div class="kq">
+    <h1 class="ko">المسارات التعليمية</h1>
+    <p class="kio">المسارات التعليمية المتكاملة</p>
+    <a class="kwp" href="masg.html">الدردشة معا الاصدقاء</a>
+    <div class="kep">
+      <div class="k"></div>
+    </div>
+    <a class="kwl" href="cod.html">أكتب اكواد البرمجيه هنا</a>
+    <div class="kqp">
+      <div class="k"></div>
+    </div>
+    <a class="kol" href="mk.html">الامتحنات الأسبوعية الاشهادي</a>
+  </div>
+
+  <div class="kew">
+    <h2 class="hg"></h2>
+    <h1 class="hf">اخر التطبيقات</h1>
+    <p class="la">Front-End تطبيقات على مجال ال</p>
+
+  
+  <p>متصفحك لا يدعم تشغيل الفيديو.</p>
+</video>
+  </div>
+
+  <!-- الأزرار التي ستظهر عند الضغط على زر "ثلث الشرط" -->
+  <div class="more-buttons">
+    <button>زر 1</button>
+    <button>زر 2</button>
+    <button>زر 3</button>
+  </div>
+
+  <script>
+  window.alert("تم تسجيل الدخول بي نجاح")
+    function toggleButtons() {
+      var buttons = document.querySelector('.more-buttons');
+      // عكس حالة عرض الأزرار: إذا كانت مخفية نعرضها، وإذا كانت ظاهرة نخبئها
+      if (buttons.style.display === 'none' || buttons.style.display === '') {
+        buttons.style.display = 'block'; // إظهار الأزرار
+      } else {
+        buttons.style.display = 'none'; // إخفاء الأزرار
+      }
+    }
+  </script>
+
+</body>
+</html>

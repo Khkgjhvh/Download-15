@@ -1,0 +1,93 @@
+.ker{
+  background-color: #eee;
+  height: 500px;
+  border-radius: 20px;
+  border-bottom: 4px solid red;
+  animation-name: uop;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease;
+  
+}
+
+@keyframes uop{
+  0%{
+    border-bottom: 6px solid blue;
+  }
+  50%{
+    border-bottom: 6px solid black;
+  }
+  100%{
+    border-bottom: 6px solid red;
+  }
+  
+}
+
+h1{
+  text-align: center;
+  margin-top: 110px;
+  padding: 30px;
+}
+
+.k{
+  text-align: center;
+  padding: 10px 70px;
+  margin: 10px;
+  border-radius: 10px;
+  margin-top: -100px;
+  outline: none;
+  border-bottom: 3px solid red;
+  transition: all 0.4s;
+}
+.k:hover{
+  border-bottom: 3px solid blue;
+  scale: 1.1;
+}
+.u{
+  text-align: center;
+  padding: 10px 70px;
+  margin: 10px;
+  border-radius: 10px;
+  outline: none;
+  border-bottom: 3px solid blue;
+  transition: all 0.4s;
+}
+.u:hover{
+  border-bottom: 3px solid red;
+  scale: 1.1;
+}
+.p{
+  text-align: center;
+  padding: 10px 70px;
+  margin: 10px;
+  border-radius: 10px;
+  outline: none;
+  border-bottom: 3px solid red;
+  transition: all 0.4s;
+}
+.p:hover{
+  border-bottom: 3px solid blue;
+  scale: 1.1;
+}
+.r{
+  text-align: center;
+  padding: 10px 20px;
+  margin-left: 20px;
+  border-radius: 20px;
+  margin-top: 20px;
+  outline: none;
+  width: 300px;
+  transition: all 0.4s;
+}
+.r:hover{
+  background-color: red;
+  color: #FFFFFF;
+  scale: 1.1;
+}
+.g{
+  text-align: center;
+  padding: 4px 50px;
+  margin: 10px;
+  margin-left: 50px;
+  outline: none;
+}

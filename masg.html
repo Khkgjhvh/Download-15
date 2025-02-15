@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>موقع تواصل اجتماعي</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      direction: rtl;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #007bff;
+      color: white;
+      padding: 10px 20px;
+      text-align: center;
+    }
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+    .post-form input, .post-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    .post-form button {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .post-form button:hover {
+      background-color: #218838;
+    }
+    .post {
+      margin-bottom: 20px;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      background: #f9f9f9;
+    }
+    .comments {
+      margin-top: 10px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      background: #f4f4f4;
+    }
+    .delete-comment {
+      background-color: red;
+      color: white;
+      border: none;
+      padding: 3px 7px;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    .delete-comment:hover {
+      background-color: #d9534f;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>موقع تواصل اجتماعي</h1>
+  </header>
+
+  <!-- قسم الرسائل -->
+  <div class="container">
+    <h2>الرسائل الاجتماعية</h2>
+    <div class="chat-box">
+      <div id="messages"></div>
+      <input type="text" id="message-input" placeholder="اكتب رسالتك هنا...">
+      <button id="send-message">إرسال</button>
+      <button id="clear-messages" style="background-color: red; color: white;">مسح جميع الرسائل</button>
+    </div>
+  </div>
+
+  <!-- قسم المنشورات -->
+  <div class="container">
+    <div class="post-form">
+      <h2>إنشاء منشور</h2>
+      <input type="text" id="post-title" placeholder="عنوان المنشور">
+      <textarea id="post-content" rows="4" placeholder="اكتب شيئاً..."></textarea>
+      <button id="add-post">نشر</button>
+    </div>
+    <div id="posts"></div>
+  </div>
+
+  <script>
+    // قسم الرسائل - بدون تعديل
+    const messageInput = document.getElementById('message-input');
+    const sendMessageButton = document.getElementById('send-message');
+    const clearMessagesButton = document.getElementById('clear-messages');
+    const messagesContainer = document.getElementById('messages');
+
+    const savedMessages = JSON.parse(localStorage.getItem('messages')) || [];
+    savedMessages.forEach(({ text, type }) => addMessage(text, type));
+
+    sendMessageButton.addEventListener('click', () => {
+      const messageText = messageInput.value.trim();
+      if (!messageText) {
+        alert('يرجى كتابة رسالة!');
+        return;
+      }
+
+      addMessage(messageText, 'sent');
+      saveMessages();
+      messageInput.value = '';
+    });
+
+    clearMessagesButton.addEventListener('click', () => {
+      if (confirm('هل أنت متأكد من مسح جميع الرسائل؟')) {
+        messagesContainer.innerHTML = '';
+        localStorage.removeItem('messages');
+      }
+    });
+
+    function addMessage(text, type) {
+      const message = document.createElement('div');
+      message.className = `message ${type}`;
+      message.textContent = text;
+
+      const deleteButton = document.createElement('button');
+      deleteButton.textContent = 'مسح';
+      deleteButton.className = 'delete-message';
+      deleteButton.onclick = () => deleteMessage(message);
+
+      message.appendChild(deleteButton);
+      messagesContainer.appendChild(message);
+      messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }
+
+    function deleteMessage(messageElement) {
+      if (confirm('هل أنت متأكد من مسح هذه الرسالة؟')) {
+        messageElement.remove();
+        saveMessages();
+      }
+    }
+
+    function saveMessages() {
+      const messages = Array.from(messagesContainer.children).map((msg) => ({
+        text: msg.textContent.replace('مسح', '').trim(),
+        type: msg.className.split(' ')[1],
+      }));
+      localStorage.setItem('messages', JSON.stringify(messages));
+    }
+
+    // قسم المنشورات - مع التعديلات
+    const postTitle = document.getElementById('post-title');
+    const postContent = document.getElementById('post-content');
+    const addPostButton = document.getElementById('add-post');
+    const postsContainer = document.getElementById('posts');
+
+    const savedPosts = JSON.parse(localStorage.getItem('posts')) || [];
+    savedPosts.forEach(({ title, content, comments }) => addPost(title, content, comments));
+
+    addPostButton.addEventListener('click', () => {
+      const title = postTitle.value.trim();
+      const content = postContent.value.trim();
+      if (!title || !content) {
+        alert('يرجى ملء جميع الحقول!');
+        return;
+      }
+
+      addPost(title, content, []);
+      savePosts();
+      postTitle.value = '';
+      postContent.value = '';
+    });
+
+    function addPost(title, content, comments = []) {
+      const post = document.createElement('div');
+      post.className = 'post';
+      post.innerHTML = `
+        <h3>${title}</h3>
+        <p>${content}</p>
+        <button onclick="toggleComments(this)">إظهار التعليقات</button>
+        <button onclick="addComment(this)">إضافة تعليق</button>
+        <div class="comments" style="display: none;">
+          ${comments
+            .map(
+              (comment, index) =>
+                `<p>
+                  ${comment}
+                  <button onclick="deleteComment(this)" class="delete-comment">مسح</button>
+                </p>`
+            )
+            .join('')}
+        </div>
+      `;
+      postsContainer.prepend(post);
+    }
+
+    function toggleComments(button) {
+      const commentsContainer = button.nextElementSibling.nextElementSibling;
+      if (commentsContainer.style.display === 'none') {
+        commentsContainer.style.display = 'block';
+        button.textContent = 'إخفاء التعليقات';
+      } else {
+        commentsContainer.style.display = 'none';
+        button.textContent = 'إظهار التعليقات';
+      }
+    }
+
+    function addComment(button) {
+      const commentText = prompt('اكتب تعليقك:');
+      if (commentText && commentText.trim() !== '') {
+        const commentsContainer = button.nextElementSibling;
+        const comment = document.createElement('p');
+        comment.innerHTML = `
+          ${commentText}
+          <button onclick="deleteComment(this)" class="delete-comment">مسح</button>
+        `;
+        commentsContainer.appendChild(comment);
+        savePosts();
+      }
+    }
+
+    function deleteComment(button) {
+      if (confirm('هل أنت متأكد من مسح هذا التعليق؟')) {
+        button.parentElement.remove();
+        savePosts();
+      }
+    }
+
+    function savePosts() {
+      const posts = Array.from(postsContainer.children).map((post) => ({
+        title: post.querySelector('h3').textContent,
+        content: post.querySelector('p').textContent,
+        comments: Array.from(post.querySelectorAll('.comments p')).map(
+          (c) => c.firstChild.textContent.trim()
+        ),
+      }));
+      localStorage.setItem('posts', JSON.stringify(posts));
+    }
+  </script>
+</body>
+</html>

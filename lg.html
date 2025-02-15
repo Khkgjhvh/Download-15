@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="lg.css">
+  <title>إنشاء حساب</title>
+</head>
+
+<body>
+  <form onsubmit="createAccount(event)">
+    <div class="ker">
+      <h1>إنشاء حساب جديد</h1>
+      <input id="email" class="k" type="email" placeholder="ادخال البريد الالكتروني" required>
+      <input id="username" class="u" type="text" placeholder="ادخال اسم المستخدم" required>
+      <input id="password" class="p" type="password" placeholder="password" required>
+     
+      
+      <input class="r" type="submit" value="إنشاء حساب">
+    </div>
+  </form>
+
+  <script>
+    function createAccount(event) {
+      event.preventDefault(); // منع تحديث الصفحة
+
+      // جمع البيانات من الحقول
+      const email = document.getElementById("email").value;
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+
+      // التحقق إذا كان الحساب موجود بالفعل
+      if (localStorage.getItem(email)) {
+        alert("هذا الحساب موجود بالفعل. قم بتسجيل الدخول.");
+        return;
+      }
+
+      // تخزين بيانات الحساب في localStorage
+      const userData = {
+        username: username,
+        password: password,
+      };
+
+      localStorage.setItem(email, JSON.stringify(userData));
+      alert("تم إنشاء الحساب بنجاح! يمكنك الآن تسجيل الدخول.");
+    }
+  </script>
+</body>
+
+</html>

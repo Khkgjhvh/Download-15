@@ -1,0 +1,60 @@
+body {
+    font-size: 15pt;
+    background-color: #333;
+}  
+
+.j{
+  background-color: #FFFFFF;
+  height: 350px;
+  border-radius: 20px;
+  border-bottom: 5px solid red;
+  
+}
+
+h1{
+ text-align: center;
+ margin-top: 90px;
+}
+input{
+  text-align: center;
+  
+  margin: 5px;
+  margin-top: 40px;
+  padding: 5px;
+  margin-left: 50px
+  
+}
+p{text-align: center;
+  padding: 5px;
+  margin: 5px;
+  background-color: black;
+  color: #FFFFFF;
+  border-radius: 15px;
+  transform: skew(10deg, 4deg);
+  
+}
+
+.su{
+  /*margin-top:*/
+  width: 30px;
+  height: 30px;
+  border-radius: 20px;
+  background-color: #333;
+  color: #eee;
+  margin-left: 300px;
+  margin-top: -30px;
+  animation-name: up;
+  animation-duration: 3s;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
+}
+
+@keyframes up{
+  to{
+    opacity: 0.3;
+    /*علشان يخلي النيميشن يمشي بي التدريج*/
+    transform: translateY(20px);
+    
+    
+  }
+}
